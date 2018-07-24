@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-dpr="1" style="font-size: 100px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="format-detection" content="telephone=no">
+    <title>芭提雅微商城</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- [if lt IE 9]>
+    <script> src="js/html5.js"</script>
+    <![endif]-->
+    <script>
+        function queryProduct(){
+            var pa = $.trim($("#queryPro").val());
+            if(pa == ''){
+                return;
+            }
+            window.location.href = '/queryProduct?pa='+pa;
+        }
+    </script>
+</head>
+<body>
+<div class="setting_box">
+    <span>购物车</span>
+    <button class="setting">编辑</button>
+</div>
+<div class="goods_box">
+    <ul>
+        <li>
+            <div><img src="" alt=""></div>
+            <div>
+                <h3 style="display:inline"></h3>
+                <span class='price'></span>
+            </div>
+            <div class='count'>
+                <button value="-" class="countdis">-</button>
+                <button class="num"><span>1</span></button>
+                <button value="+" class="countadd">+</button>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="statement_box">
+    <div class='total_price'><span style="margin-left:250px">合计：</span><span class='total' style='display:inline-block;width:155px;height:100%;color:red'></span></div>
+    <div class="statement_button">
+        <button>结算<span>(1)</span></button>
+    </div>
+</div>
+<!-- 尾部结束 -->
+<div class="tab_bar">  <!-- 标签栏 -->
+    <ul>
+        <li><a href="home.html">首页</a></li>
+        <li><a href="list.html">分类</a></li>
+        <li class="tab_active"><a href="market.html">购物车</a></li>
+        <li><a href="person.html">我的</a></li>
+    </ul>
+</div>
+<!-- 尾部结束 -->
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/jquery.touchSlider.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/del_hints.js"></script>
+
+<!-- <script src="js/prohibit.js"></script> -->
+</body>
+<script>
+
+// 商品个数加减
+var storage=window.localStorage;
+$('.total').html(storage.goodsPrice)
+var num=$('.num span');
+num.html(storage.goodsNum)
+console.log(storage.goodsNum)
+$('.countdis').click(function(){
+   if(num.html()<=1){
+   }else{
+    num.html(parseInt(num.html())-1);
+    storage.goodsNum=num.html();
+    var total_price=parseInt(price_.html())*parseInt(storage.goodsNum);
+    storage.total_price=total_price;
+    $('.total').html(storage.total_price)
+   }
+})
+$('.countadd').click(function(){
+    num.html(parseInt(num.html())+1);
+    storage.goodsNum=num.html();
+    var total_price=parseInt(price_.html())*parseInt(storage.goodsNum);
+    storage.total_price=total_price;
+    $('.total').html(storage.total_price)
+})
+// 商品信息获取
+$('.price').html(storage.goodsPrice);
+var goods_box=$('.goods_box li');
+var img_=$('.goods_box li img');
+var title_=$('.goods_box li h3');
+var price_=$('.goods_box li .price');
+for(let i=0;i<goods_box.length;i++){
+    img_.eq(i).attr('src',storage.goodsImgSrc)
+    title_.eq(i).html(storage.goodsName)
+}
+
+// 商品价格
+
+</script>
+</html>

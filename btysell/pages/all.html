@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-dpr="1" style="font-size: 100px;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="viewport" content="width=750,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<meta name="format-detection" content="telephone=no">
+	<title>全部订单</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<!--[if lt IE 9]>
+	<script> src="js/html5.js"</script>
+	<![endif]-->
+	<script>
+	function queryProduct(){
+		var pa = $.trim($("#queryPro").val());
+		if(pa == ''){
+			return;
+		}
+		window.location.href = '/queryProduct?pa='+pa;
+	}
+	</script>
+</head>
+<body>
+  我的订单
+</body>
+</html>

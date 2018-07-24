@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-dpr="1" style="font-size: 100px;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="viewport" content="width=750,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<meta name="format-detection" content="telephone=no">
+	<title>芭提雅微商城</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<!--[if lt IE 9]>
+	<script> src="js/html5.js"</script>
+	<![endif]-->
+	<script>
+	function queryProduct(){
+		var pa = $.trim($("#queryPro").val());
+		if(pa == ''){
+			return;
+		}
+		window.location.href = '/queryProduct?pa='+pa;
+	}
+	</script>
+</head>
+<body>
+	<header class="header index_header">
+		<div class="logo"><img src="../images/logo.png" alt=""></div>
+		<div class="seach">
+			<input type="text" maxlength="24" placeholder="请输入要搜索的商品" id="queryPro">
+		</div>
+		<div class="seach_btn"><a onclick="queryProduct()">搜索</a></div>
+	</header>
+
+	<div class="main_visual">		<!-- banner -->
+		<div class="flicking_con">
+			<a href="#" class="on">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+		</div>
+		<div class="main_image">
+			<ul style="width: 750px; overflow: visible;">
+					<li style="float: none; display: block; position: absolute; top: 0px; left: 0px; width: 750px;">
+						<img src="../upload/20180518183506113582.png">
+					</li>
+					<li style="float: none; display: block; position: absolute; top: 0px; left: 750px; width: 750px;">
+						<img src="../upload/20180518183330852860.png">
+					</li>
+					<li style="float: none; display: block; position: absolute; top: 0px; left: 1500px; width: 750px;">
+						<img src="../upload/20180518183318104808.png">
+					</li>
+			</ul>
+			<a href="javascript:;" id="btn_prev" style="width: 750px; overflow: visible;"></a>
+			<a href="javascript:;" id="btn_next" style="width: 750px; overflow: visible;"></a>
+		</div>
+	</div>
+
+	<div class="navbar">	<!-- 导航栏 -->
+		<ul class="clearfix">
+			<li>
+				<div><a href="list.html"></a></div>
+				<span>商品分类</span>
+			</li>
+			<li>
+				<div><a href="alllist.html"></a></div>
+				<span>所有商品</span>
+			</li>
+			<li>
+				<div><a href="all.html"></a></div>
+				<span>我的订单</span>
+			</li>
+			<li>
+				<div><a href="aboutbty.html"></a></div>
+				<span>关于芭提雅</span>
+			</li>
+		</ul>
+	</div>
+
+	<!--<section class="activity">		 活动 
+		<a href=""><img src="../images/activity.jpg" alt=""></a>
+	</section>-->
+
+	<section class="product">
+		<div class="rec_pro">
+			<h2>热销推荐</h2>
+		</div>
+		<div class="product_list">
+			<ul class="clearfix">
+				<li>
+					<a href="goodsdetail.html?src=../upload/20180521143034949867.jpg&name=B-T-Y-ZH-003&price=9999">
+						<div class="img_box product_list_img">
+							<img src="../upload/20180521143034949867.jpg" alt="">
+						</div>
+						<div class="pro_title">
+							<h3>B·T·Y-ZH-003</h3>
+							<div class="unit_price">¥9999</div>
+						</div>
+					</a>
+				</li>
+				<li>
+					<a href="goodsdetail.html?src=../upload/20180521143034508949.jpg&name=B-T-Y-ZH-005&price=9999">
+						<div class="img_box product_list_img">
+							<img src="../upload/20180521143034508949.jpg" alt="">
+						</div>
+						<div class="pro_title">
+							<h3>B·T·Y-ZH-005</h3>
+							<div class="unit_price">¥9999</div>
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</section
+
+><!-- 尾部结束 --> 
+<!--底部-->
+	<div class="tab_bar">  <!-- 标签栏 -->
+		<ul>
+			<li class="tab_active"><a href="/">首页</a></li>
+			<li><a href="list.html">分类</a></li>
+			<li><a href="market.html">购物车</a></li>
+			<li><a href="person.html">我的</a></li>
+		</ul>
+	</div>
+<!-- 尾部结束 --> 
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/jquery.touchSlider.js"></script>
+<script src="../js/lunbo.js"></script>
+<!-- <script src="js/prohibit.js"></script> -->
+<!-- <script>
+   (function() {
+	    var _53code = document.createElement("script");
+		_53code.src = "https://tb.53kf.com/code/code/10177064/1";
+		var s = document.getElementsByTagName("script")[0]; 
+		s.parentNode.insertBefore(_53code, s);})();
+</script> -->
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-dpr="1" style="font-size: 100px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="format-detection" content="telephone=no">
+    <title>商品详情</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!--[if lt IE 9]>
+    <script> src="js/html5.js"</script>
+    <![endif]-->
+    <script>
+        function queryProduct(){
+            var pa = $.trim($("#queryPro").val());
+            if(pa == ''){
+                return;
+            }
+            window.location.href = '/queryProduct?pa='+pa;
+        }
+    </script>
+</head>
+<body>
+    <div class='goods_img'>
+      <img src=""/>
+    </div>
+    <div class="goods_name">
+      
+    </div>
+    <div class="goods_price">
+
+    </div>
+    <div class="goods_from">
+       <span>发货地:郑州</span><span>快递：￥10.00（满39元免邮费）</span>
+    </div>
+    <div class='promise'>
+      <p><i></i>正品保障</p>
+      <p><i></i>安全保障</p>
+      <p><i></i>服务保障</p>
+    </div>
+    <div class="goods_select">
+       <div class='selects'>
+         <span style="padding-left: 20px;">选择产品规格</span>
+         <span class='select_click' style='float: right;' >···</span>
+       </div>
+    </div>
+    <div class='cover'>
+       <div class="cover_1" style='width:100%;height:800px'>
+       </div>
+       <div id='select_box' class=" select_box_flag">
+          <p>
+            选择产品规格
+          </p>
+          <div class="count_box">
+            <span style="display: inline-block;">数量</span>
+              <div class='count'>
+                <button value="-" class="countdis">-</button>
+                <button class="num"><span>1</span></button>
+                <button value="+" class="countadd">+</button>
+              </div>
+              <div style="width:100%;height:300px;"></div>
+          </div>
+          <ul class='actions'>
+            <li class='addcar'>加入购物车</li>
+            <li class='pay'>立即购买</li>
+          </ul>
+       </div>
+    </div>
+    <div class="goods_detail">
+        <img src="../images/detail.png">
+    </div>
+    <div class="foot">
+      <ul>
+        <li><i class='love'></i><p>收藏</p></li>
+        <li><i></i><p><a href='market.html' style="color:#999">购物车</a></p></li>
+        <li class='addcar'>加入购物车</li>
+        <li class='pay'>立即购买</li>
+      </ul>
+    </div>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/jquery.touchSlider.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/del_hints.js"></script>
+
+<!-- <script src="js/prohibit.js"></script> -->
+<script>
+  function getUrlData(url) {
+    url = window.location.href;     //获取当前页面的url
+    var enUrl = decodeURI(url); //解码
+    var len = enUrl.length;   //获取url的长度值
+    var a = enUrl.indexOf("?");   //获取第一次出现？的位置下标
+    var b = enUrl.substr(a + 1, len);   //截取问号之后的内容
+    var c = b.split("&");   //从指定的地方将字符串分割成字符串数组
+    var arr = new Array();  //新建一个数组
+    for (var i = 0; i < c.length; i++) {
+        var d = c[i].split("=")[1]; //从=处将字符串分割成字符串数组,并选择第2个元素
+        arr.push(d);    //将获取的元素存入到数组中
+    }
+ 
+    return arr;
+}
+
+// 获取路径传的值
+var url=window.location.href;
+var a=url.indexOf("?");
+console.log(a);
+var len=url.length;
+var datastr=url.substr(a+1,len);
+// console.log(datastr);
+var arr=datastr.split('&');
+for(var i=0;i<arr.length;i++){
+	var srcs=arr[0].split('=');
+	var src=srcs[1];
+	var names=arr[1].split('=');
+	var name=names[1];
+  var prices=arr[2].split('=');
+	var price=prices[1];
+	// console.log(name)
+}
+$('.goods_img img').attr('src',src);
+$('.goods_name').text(name);
+$('.goods_price').html(price)
+//计算个数
+var num=$('.num span');
+$('.countdis').click(function(){
+   if(num.html()<=1){
+    
+   }else{
+    num.html(parseInt(num.html())-1);
+   }
+})
+
+$('.countadd').click(function(){
+    num.html(parseInt(num.html())+1);
+})
+
+// 选择产品规格
+$('.select_click').click(function(){
+   $('.cover').css('display','block');
+
+})
+$('.cover_1').click(function(){
+  $('.cover').css('display','none');
+})
+// 收藏
+var love=$('.foot ul li').eq(0).children('i');
+$('.foot ul li').eq(0).click(function(){
+  console.log('0')
+  love.toggleClass('loved')
+  love.toggleClass('love')
+  var flaglove=love.attr('class');
+  if(flaglove=='loved'){
+    console.log('已收藏')
+  }
+  if(flaglove=='love'){
+    console.log('取消收藏')
+  }
+})
+
+// 加入购物车
+$('.addcar').click(function(){
+  if(!window.localStorage){
+      alert("浏览器支持localstorage");
+      return false;
+  }else{
+      var storage=window.localStorage;
+      storage.goodsImgSrc=src;
+      storage.goodsName=name;
+      storage.goodsNum=num.html();
+      storage.goodsPrice=price;
+      alert('加入购物车成功')
+  }
+})
+
+</script>
+</body>
+</html>

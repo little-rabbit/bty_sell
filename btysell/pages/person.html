@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-dpr="1" style="font-size: 100px;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="viewport" content="width=750,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="white">
+    <meta name="format-detection" content="telephone=no">
+    <title>芭提雅微商城</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!--[if lt IE 9]>
+    <script> src="js/html5.js"</script>
+    <![endif]-->
+    <script>
+        function queryProduct(){
+            var pa = $.trim($("#queryPro").val());
+            if(pa == ''){
+                return;
+            }
+            window.location.href = '/queryProduct?pa='+pa;
+        }
+    </script>
+</head>
+<body>
+<div class="user_box">
+    <div class="head">
+        <div class="photo_box">
+            <div class='photo'></div>
+        </div>
+    </div>
+    <ul class="my_goods">
+       <li class='goods_pay'>
+          <p style="background:url(../images/my_pay.png) no-repeat center center"></p>
+          <p>代付款</p>
+       </li>
+       <li class='goods_arrive'>
+          <p style="background:url(../images/my_arrive.png) no-repeat center center"></p>
+          <p>待收货</p>
+       </li>
+       <li class='goods_after'>
+          <p style="background:url(../images/my_after.png) no-repeat center center"></p>
+          <p>退货/售后</p>
+       </li>
+       <li class='goods_all'>
+          <p style="background:url(../images/my_all.png) no-repeat center center"></p>
+          <p>全部订单</p>
+       </li>
+    </ul>
+    <ul class='my_message'>
+        <li class='my_select'>
+           <p style="background:url(../images/my_collect.png) no-repeat center center"></p>
+           <p>我的收藏</p>
+           <p>···</p>
+        </li>
+        <li class='my_address'>
+           <p style="background:url(../images/my_address.png) no-repeat center center"></p>
+           <p>地址管理</p>
+           <p>···</p>
+        </li>
+        <li class='my_kefu'>
+            <p style="background:url(../images/kefu.png) no-repeat center center"></p>
+            <p>客服中心</p>
+            <p>···</p>
+        </li>
+        <li class='my_about'>
+            <p style="background:url(../images/about.png) no-repeat center center"></p>
+            <p>关于芭提雅</p>
+            <p>···</p>
+        </li>
+    </ul>
+</div>
+<!-- 尾部结束 -->
+<div class="tab_bar">  <!-- 标签栏 -->
+    <ul>
+        <li><a href="home.html">首页</a></li>
+        <li><a href="list.html">分类</a></li>
+        <li><a href="market.html">购物车</a></li>
+        <li class="tab_active"><a href="person.html">我的</a></li>
+    </ul>
+</div>
+<!-- 尾部结束 -->
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/jquery.touchSlider.js"></script>
+<script src="../js/cart.js"></script>
+<script src="../js/del_hints.js"></script>
+<!-- <script src="js/prohibit.js"></script> -->
+</body>
+</html>
