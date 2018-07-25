@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-dpr="1" style="font-size: 100px;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="viewport" content="width=750,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<meta name="format-detection" content="telephone=no">
+	<title>地址管理</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<!--[if lt IE 9]>
+	<script> src="js/html5.js"</script>
+	<![endif]-->
+</head>
+<body>
+    <ul class='add_address_box'>
+        <li>
+            <span>联系人：</span><input type="text" name='my_name'>
+        </li>
+        <li>
+            <span>联系电话：</span><input type="number" name='phone'>
+        </li>
+        <li>
+            <span>所在地区：</span><input type="text" placeholder='请选择收货地址' name='address'>
+        </li>
+        <li style="height:200px;">
+            <input type="text" placeholder='详细地址' name='detail_address'>
+        </li>
+    </ul>
+    <div class="save">
+        <button>保存</button>
+    </div>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    var storage=window.localStorage;
+    var num=0;
+    // var address_list1=storage.address_change;
+    // address_list1=JSON.parse(address_list1);
+    // console.log(address_list1.data[0]);
+    // $("input[name='my_name']").val(address_list1.data[0].my_name);
+    // $("input[name='phone']").val(address_list1.data[0].phone);
+    // $("input[name='address']").val(address_list1.data[0].address);
+    // $("input[name='detail_address']").val(address_list1.data[0].detail_address);
+    $('.save button').click(function(){
+        var my_name=$("input[name='my_name']").val();
+        var phone=$("input[name='phone']").val();
+        var address=$("input[name='address']").val();
+        var detail_address=$("input[name='detail_address']").val();
+        if(my_name&&phone&&address&&detail_address!=' '){
+            address_={
+            "data":[{
+                'num':num,
+                'my_name': my_name,
+                'phone': phone,
+                'address': address,
+                'detail_address': detail_address
+            }]
+          }
+            num++; 
+            storage.setItem('address_list'+num,JSON.stringify(address_)); 
+        }else{
+            alert('请将地址填写完整')
+        }
+    })
+
+    
+</script>
+
+</html>

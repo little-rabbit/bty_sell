@@ -2128,3 +2128,103 @@ input:-ms-input-placeholder { font-size:0.28rem;}
     flex:0.1;
     letter-spacing:6px;
 }
+
+/* 地址管理 */
+.address_list{
+    width: 100%;
+    height: auto;
+    background: white;
+    color: #333;
+}
+.address_list .message{
+    width:96%;
+    /* height:140px; */
+    line-height:70px;
+    margin:0 auto;
+    border-bottom: 1px solid #ccc;
+    font-size: 30px;
+}
+.address_list .message_setting{
+    margin:0 auto;
+    font-size: 30px;
+    width:96%;
+    height: 80px;
+    background:white;
+    line-height: 80px;
+    display: flex;
+    justify-content: flex-start;
+}
+.address_list .message_setting p:nth-of-type(1){
+    flex:2
+}
+.address_list .message_setting p:nth-of-type(2){
+    flex:1.1;
+}
+.address_list .message_setting p:nth-of-type(3){
+    flex:0.7
+}
+.address_list .message_setting img{
+    width:55px;
+    height: 55px;;
+}
+.address_box{
+    width: 100%;
+    height: 100%;
+}
+.address_box button{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    line-height: 100px;
+    background: red;
+    border:0;
+}
+.add_address_box{
+    font-size: 30px;
+    color: #333;
+    width: 100%;
+    height: auto;
+    background: white;
+}
+.add_address_box li{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    border-top:1px solid #ccc;
+    display: flex;
+    justify-content: flex-start;
+}
+.add_address_box li span{
+   display: inline-block;
+   flex:0.3;
+   /* width: 150px;
+   height: 100%; */
+   padding-left: 20px;
+}
+.add_address_box li input{
+    flex:1;
+    display: inline-block;
+    height: 100%;
+    border:0;
+    font-size: 30px;
+}
+.save{
+    width:100%;
+    height: 100px;
+    text-align: center;
+    position: fixed;
+    bottom:200px;
+}
+.save button{
+    width:33%;
+    height: 100px;
+    background: red;
+    font-size: 30px;
+    color: white;
+    text-align: center;
+    border:0;
+}

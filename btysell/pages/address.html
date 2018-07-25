@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" data-dpr="1" style="font-size: 100px;">
+<head>
+	<meta charset="UTF-8">
+	<meta name="renderer" content="webkit">
+	<meta http-equiv="Cache-Control" content="no-siteapp">
+	<meta name="viewport" content="width=750,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="white">
+	<meta name="format-detection" content="telephone=no">
+	<title>地址管理</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<!--[if lt IE 9]>
+	<script> src="js/html5.js"</script>
+	<![endif]-->
+</head>
+<body>
+    <ul class="address_list">
+       
+    </ul>
+    <div class="address_box">
+       <a href="address_setting.html"><button>新增收货地址</button></a>
+    </div>
+</body>
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script>
+    var storage=window.localStorage;
+    // for(let i=1;i<=2;i++){
+    //     console.log(storage.address_list1+','+storage.address_list2)
+    // }
+
+    var address_list=storage.address_list1;
+   if(address_list){
+       $('.address_list').append(
+        `<li>
+            <div class='message'>
+                <p>
+                    <span class='my_name'></span>
+                    <span class='phone'></span>
+                </p>
+                <p>
+                    <span class='address'></span>
+                </p>
+            </div>
+            <div class="message_setting">
+               <p class='select_moren'>
+                    <img class='select_moren_img' src='../images/select.png'>
+                    <span>设为默认</span>
+               </p>
+               <p class='setting_address'>
+                   <img src="../images/setting.png" alt="">
+                   <span>编辑</span>
+               </p>
+               <p class='delete_address'>
+                   <img src="../images/delete.png" alt="">
+                   <span>删除</span>
+               </p>
+            </div>
+        </li>`
+       )
+   }
+
+    address_list=JSON.parse(address_list)
+    $('.my_name').html(address_list.data[0].my_name);
+    $('.phone').html(address_list.data[0].phone);
+    $('.address').html(address_list.data[0].address+address_list.data[0].detail_address);
+
+    $('.select_moren').click(function(){
+        $('.select_moren_img').attr('src','../images/selected.png')
+        $('.select_moren span').html('默认地址')
+    })
+
+    $('.delete_address').bind('click',function(){
+        $(this).parents('li').remove();
+        storage.removeItem('address_list1')
+    })
+    // $('.setting_address').click(function(){
+    //     address_list1=storage.address_list1;
+    //     storage.address_list1=address_list1;
+    //     window.location.href='file:///D:/bty_sell/btysell/pages/address_setting.html';
+        
+    // })
+    // }
+</script>
+
+</html>
